@@ -1,0 +1,181 @@
+
+ddRADseq Protocol Plough Lab
+-	simplified version of ddRADseq from Peterson et al 2012 PLoS One
+Written by Katie Hornick (khornick@umced.edu)- April 2018
+
+Sample Setup for up to 96 wells
+-	it is good practice to make a plate map with sample names clearly shown to ensure there is no confusion, particularly during barcoding/indexing steps
+-	setup an excel document to keep track of samples and barcodes, as well as data collected along the way, eg. DNA concentrations. It also simplifies calculating sample volumes for pooling etc. I have a template for this if wanted.
+Hybridize/anneal oligos to make adapters
+
+Single-stranded oligos need to be annealed with their appropriate partner before ligation. We have sequences to make 48 uniquely barcoded adapter P1 oligo pairs (oligos 1.1 and 1.2) and common adapter P2 (oligos 2.1 and 2.2)
+
+-	I usually anneal my adaptors at a concentration of 10um, as I find it is easy to continue downstream with this number
+-	We are using the flex adaptors
+
+To make a 10um stock of hybridized adapter:
+10 ul adapter 1 (100 um)
+	10 ul adapter 1.b (100 um)
+	10 ul 10X annealing buffer
+70	l H2O
+
+There should be extra annealing buffer in the lab, but the necessary concentrations are:
+Annealing buffer stock (10X):
+100 mM Tris HCl, pH 8
+500 mM NaCl
+10 mM EDTA
+
+My recipe:
+	10 mL 1M Tris-HCl, ph8
+	10 mL 5M Nacl
+0.3722g EDTA
+80 mL ddH2O
+
+Make sure to use a high-profile plate as it accommodates the vf for this
+
+1.	To create Adapter P1, combine each oligo 1.1 with its complementary oligo 1.2 in a 1:1 ratio in working strength annealing buffer. 
+
+2.	 In a thermocyler, incubate at 97.5°C for 2.5 minutes, and then cool at a rate of not greater than 3°C per minute until the solution reaches a temperature of 21°C. Hold at 4°C.
+
+DNA digestion (vf=50 ul)
+
+Sample preparation
+-	Make sure to include Control sample of dH2O only.
+-	DNA samples should be ideally high molecular weight genomic DNA
+-	DNA should be free of RNA
+o	Use RNase somewhere in the DNA extraction
+-	DNA should be quantified by Qubit
+-	DNA starting concentration
+o	The amount of DNA per sample must be standardized going into the DNA digestion step
+o	The amount of DNA used will likely be influenced by the availability of DNA that you have access to
+o	You should aim to have 100-800 ng per sample
+	 I usually digest ~500 ng of DNA
+
+Preparation
+
+1.	add DNA to wells, adjusting final volume to 40 ul with H2O
+2.	prepare the following restriction digest master-mix:
+Reagent	Volume (1x)	Master-mix Volume 
+(# samples +3 extra)
+Cutsmart Buffer	(Calc) according to package, I use 3ul	
+10 units of Enzyme 1	(Calc)	
+10 units of Enzyme 2	(Calc)	
+H2O (vf=10)	(Calc)	
+
+3.	Aliquot 10 ul of restriction digest master-mix to each well, pipetting up and down 10X to mix
+4.	Incubate at 37C for at least 4 hours (overnight is fine) 
+5.	Quantify DNA post digest using the Qubit and run one or two samples out on gel to verify digestion was successful
+
+Ligation of adapters (vf=40 ul)
+
+Preparation
+-	amount of DNA that I use- 250 ng
+-	28 ul DNA, 2 ul P1 adapter, and 10 ul master mix
+-	thaw on ice
+o	T4 DNA ligase buffer (note: this is sensitive to freeze/thaw cycles – it is best that this is aliquoted)
+-	remove P1 adapter plate from fridge/freezer and allow to come to room temperature
+o	vortex and pulse spin plate before opening
+
+Calculated ligation master mix based on cut site and cut frequencies of my two enzymes  (see Peterson et al. 2011 ddRAD molarity calculator sheet in supplementary materials) 
+
+
+
+Reagent	Volume (1x)	Master-mix Volume 
+(# samples +3 extra)
+T4 DNA ligase buffer	4.2	
+T4 DNA ligase	0.8	
+Adapter P2 (X um)	(2 ul of your stock)	
+H2O	(Calc)	
+1.	aliquot 10 ul of ligation master-mix to each well and pipette up and down 10X to mix
+2.	add 2 ul of each UNIQUE Adapter P1 (from sheet calculated working stock) to each well using multichannel pipette and pipette up and down to mix
+3.	Cover plate with a plate seal
+4.	Vortex plate for 10 seconds
+5.	spin down
+6.	4.   Incubate at room temperature (23°C) for 30 min, then heat-kill at 65°C for 10 min. After the heat-kill, cool the solution at 2°C per 90 seconds until it reaches room temperature. 
+
+***SAFE STOPPING POINT – PUT IN FRIDGE FOR UP TO 2 DAYS ***
+
+Library clean & bead double size selection 
+
+General information:
+-	double size selection refers to the use of beads to first bind high Mw DNA (>~800-bp), after which the supernatant is collected, and a second bead bind is used to collect >250-bp fragments
+-	should result in an enrichment of fragments in range of ~250-800-bp
+-	this step is included in the protocol to help in a few ways
+o	It removes high and low Mw DNA that will not be sequenced regardless
+o	It enriches for DNA in approximately the correct size range prior to PCR, so that when samples are PCRed, amplification of relevant fragments takes place
+o	It helps in the normalization of samples that might differ in quality
+
+Note that this protocol is for a starting volume of 42 ul in plate I use this protocol for size selection and adjust it according to my starting volume (VERY IMPORTANT TO KEEP THESE RATIOS CONSISTENT!)
+
+It is also important to bring AMPURE XP to room temp, I usually take it out over 30 min before I begin the protocol
+
+
+Preparation
+-	make PEG buffer (20% PEG w/v, 2.5M NaCl)
+o	10 g PEG 6000
+o	7.305 g NaCl
+o	top up to 50 ml with MilliQ H2O
+
+-	make Ampure mix 1
+
+Reagent	Volume (1x)	Master-mix Volume 
+(# samples +4 extra)
+Ampure XP	10	
+PEG buffer	40	
+- make Ampure mix 2
+
+Reagent	Volume (1x)	Master-mix Volume 
+(# samples +4 extra)
+Ampure XP	10	
+PEG buffer	10	
+-	Prepare fresh Ethanol (80%) 
+
+1.	add 58 ul H2O to each tube to bring the total volume to 100 ul
+2.	add 50 ul (CALCULATE AMOUNT HERE BASED ON STARTING VOLUME) of ampure mix 1 to each tube and pipette up and down 10X to mix
+3.	incubate at least 30 mins on bench
+4.	place plate on tube magnet for 5 mins (make sure liquid appears clear)
+5.	in A NEW tube (label TUBE2), add 20 ul of ampure mix 2 (CALCULATE AMOUNT HERE BASED ON STARTING VOLUME)  to each tube ready for sample
+6.	while the original tube is on the magnet, transfer the SUPERNATANT to the new tube OFF the magnet containing the 20 ul ampure mix 2, and pipette up and down 10X to mix
+7.	Incubate off the magnet for at least 30 mins
+8.	Transfer tube to magnet and Incubate for 5 mins (at least until solution clears)
+9.	Discard supernatant by pipette / aspirate 
+10.	Wash samples by adding 200 ul of 80% Ethanol to each sample and wait 30 seconds
+11.	Discard Ethanol by pipette / aspirate
+12.	Repeat steps 8 & 9 for total of two washes
+13.	Remove from tube from magnet and allow to air dry for 2-3 mins – make sure you cannot detect any ethanol
+a.	NOTE: do not allow plate to dry for too long – beads will start to crack and become hard to re-suspend 
+b.	Not a huge problem if this happens, but makes it more difficult as mixing steps following become more difficult – keep going though
+14.	Once ethanol has evaporated, add 12 (CALCULATE AMOUNT HERE BASED ON STARTING AMOUNT) ul of H20 and pipette up and down 10X to mix, making sure beads have resuspended
+15.	 allow to incubate for at least 10 mins
+16.	Place tube back on magnet for 5 mins (at least until solution turns clear)
+17.	Transfer supernatant containing DNA to a new tube for storage of UNAMPLIFIED library
+18.	Quantify unamplified libraries using the Qubit
+
+PCR amplification of libraries
+
+For each size selected library, set up 2-5 PCR reactions in 20 ul total volume:
+
+1.	For each PCR, combine ~20ng of size-selected sample, PCR primers 1 and 2 at final concentration 2uM each, and the recommended amount of 5X-HF buffer, dNTPs, water and Phusion polymerase in a standard 200ul PCR tube.
+a.	I usually use 2 ul of 10 uM F and R primer, but make sure to calculate the appropriate amount for your libraries
+b.	Amount of DNA and water differs for each library based on starting concentration
+2.	 Run 8-12 cycles of PCR at the recommended Phusion conditions. Increasing cycle number beyond this can introduce substantial (>1%) base mis-incorporation and exacerbate size and composition bias in final libraries.
+
+****I RUN AMPLIFIED LIBRARIES ON A GEL TO CHECK FOR ACCURATE SIZE SELECTION AND SUCCESSFUL AMPLIFICATION
+
+***SAFE STOPPING POINT – PUT IN FREEZER ***
+
+Purification and pooling of PCR-amplified libraries
+
+1.	Combine the completed reactions (SAME INDEX ONLY) and clean with AMPure XP beads (1.5x beads:sample), eluting in 30-40ul.
+
+At this point, samples with distinct multiplexing indices introduced in the PCR can be combined in equimolar ratios to compose a final library for each sequencing lane, to do so:
+
+1.	 Quantify purified libraries on Qubit 
+2.	Determine amount of each indexes library to pool based on concentrations of each (must be pooled in equimolar amounts)
+3.	Quantify final pooled library using Qubit (for sequencing facility)
+4.	Adjust the concentration so that you have one of:
+a.	10 nM – best
+b.	4 nM – good
+c.	2 nM – absolute minimum
+5.	Ready for sequencing!
+
